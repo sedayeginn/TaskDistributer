@@ -12,28 +12,29 @@ namespace Seda.TaskDistrubuter.Dal
         }
 
 
-        public async void CreateTestDataAsync()
-        {
-            var dbName = "Seda.Distributer.DB";
+        //public async void CreateTestDataAsync()
+        //{
+        //    var dbName = "Seda.Distributer.DB";
 
-            if (File.Exists(dbName))
-                File.Delete(dbName);
+        //    if (File.Exists(dbName))
+        //        File.Delete(dbName);
 
-            await using var dbContext = new SqliteDBContext();
-            await dbContext.Database.EnsureCreatedAsync();
-            await dbContext.Personels.AddRangeAsync(new Personal[] {
-                new Personal { Name = "Dev1", Role = new Role { Name = "Developer" }},
-                new Personal { Name = "Dev2", Role = new Role { Name = "Developer" }},
-                new Personal { Name = "Ayşe", Role = new Role { Name = "Analist" }} });
+        //    await using var dbContext = new SqliteDBContext();
+        //    await dbContext.Database.EnsureCreatedAsync();
+        //    await dbContext.Assignments.AddRangeAsync(new Assignment[] {
+        //        new Assignment { Name = "Görev1", Difficulty = 5, PersonalId = 1 },
+        //        new Assignment { Name = "Görev2", Difficulty = 3, PersonalId = 2 },
+        //        new Assignment { Name = "Görev3", Difficulty = 8, PersonalId = 3 },
+        //    });
 
-            await dbContext.SaveChangesAsync();
+        //    await dbContext.SaveChangesAsync();
 
-            dbContext.Personels?.ToList().ForEach(p =>
-            {
-                Console.WriteLine($"{p.Name} rolü {p.Role}");
-            });
+        //    dbContext.Personels?.ToList().ForEach(p =>
+        //    {
+        //        Console.WriteLine($"{p.Name} rolü {p.Role}");
+        //    });
 
-            Console.ReadLine();
-        }
+        //    Console.ReadLine();
+        //}
     }
 }
