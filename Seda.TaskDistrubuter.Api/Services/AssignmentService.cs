@@ -36,7 +36,8 @@ namespace Seda.TaskDistrubuter.Api.Services
             return new Assignment
             {
                 Difficulty = assignmentDto.Difficulty,
-                Name = assignmentDto.Name
+                Name = assignmentDto.Name,
+                PersonalId = assignmentDto.PersonalId
             };
         }
 
@@ -50,8 +51,10 @@ namespace Seda.TaskDistrubuter.Api.Services
                 {
                     AssignmentId = assignment.Id,
                     Difficulty = assignment.Difficulty,
-                    Name = assignment.Name
+                    Name = assignment.Name,
+                    PersonalId = assignment.PersonalId
                 };
+
                 assignmentList.Add(assignmentDto);
             }
 
