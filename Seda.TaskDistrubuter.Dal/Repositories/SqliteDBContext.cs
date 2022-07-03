@@ -6,7 +6,10 @@ namespace Seda.TaskDistrubuter.Dal.Repositories
 {
     public class SqliteDBContext : DbContext
     {
-        public DbSet<Personel> Personels { get; set; }
+        public DbSet<Personal> Personels { get; set; }
+        public DbSet<Assignment> Assignments { get; set; }
+
+        public DbSet<Role> Roles { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -19,10 +22,10 @@ namespace Seda.TaskDistrubuter.Dal.Repositories
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Personel>().ToTable("Personels", "dbo");
-            modelBuilder.Entity<Personel>(entity =>
+            modelBuilder.Entity<Personal>().ToTable("Personals", "dbo");
+            modelBuilder.Entity<Personal>(entity =>
             {
-                entity.HasKey(k => k.PersonelId);
+                entity.HasKey(k => k.Id);
             });
             base.OnModelCreating(modelBuilder);
         }

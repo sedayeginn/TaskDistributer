@@ -1,6 +1,6 @@
-﻿namespace Seda.TaskDistrubuter.Dal.Entities
+﻿namespace Seda.TaskDistrubuter.Api.DTOS
 {
-    public class Rol
+    public class RoleDto
     {
         public int RolId { get; set; }
         public string Name { get; set; }
