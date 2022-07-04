@@ -16,7 +16,6 @@ namespace Seda.TaskDistrubuter.Dal.Repositories
             if (!_created)
             {
                 _created = true;
-                Database.EnsureDeleted();
                 Database.EnsureCreated();
             }
 
