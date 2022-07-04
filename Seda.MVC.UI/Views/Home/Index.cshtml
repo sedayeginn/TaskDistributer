@@ -1,5 +1,4 @@
-﻿
-@model IEnumerable<Seda.MVC.UI.Models.AssignmentViewModel>
+﻿@model IEnumerable<Seda.MVC.UI.Models.AssignmentViewModel>
 @{
     ViewData["Title"] = "Home Page";
 }
@@ -15,8 +14,12 @@
                 <th>
                     @Html.DisplayNameFor(model => model.Difficulty)
                 </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PersonalId)
+                </th>
             </tr>
-            @foreach (var item in Model) {
+            @foreach (var item in Model)
+            {
                 <tr>
                     <td>
                         @Html.DisplayFor(modelItem => item.Name)
@@ -24,8 +27,19 @@
                     <td>
                         @Html.DisplayFor(modelItem => item.Difficulty)
                     </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PersonalId)
+                    </td>
                 </tr>
             }
         </table>
+
+        <p>
+            <input name="command" type="submit" value="Add Task" />
+        </p>
+        <p>
+            @Html.ValidationSummary()
+            <input name="command" type="submit" value="Assign Tasks" />
+        </p>
     </div>
 </div>
