@@ -1,0 +1,34 @@
+﻿@using Seda.MVC.UI.Models
+@model List<AssignmentViewModel>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Task Listesi";
+}
+
+
+<table class="table table-bordered">
+    <tr>
+        <th>Task Id</th>
+        <th>Task Adı</th>
+        <th>Zoruluk</th>
+        <th>Atanan Developer</th>
+        <th></th>
+        <th></th>
+    </tr>
+    @foreach (var task in Model)
+    {
+<tr>
+    <td>@task.AssignmentId</td>
+    <td>@task.Name</td>
+    <td>@task.Difficulty</td>
+    <td>@task.PersonalId</td>
+    <td>
+        <a href="/Assignment/DeleteAssignment/@task.AssignmentId" class="btn btn-danger">Sil</a>
+    </td>
+</tr>
+    }
+</table>
+<br />
+<a href="/Assignment/NewAssignment" class="btn btn-primary">Yeni Task</a>
+
